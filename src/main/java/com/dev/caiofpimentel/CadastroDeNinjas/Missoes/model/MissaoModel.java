@@ -4,6 +4,8 @@ import com.dev.caiofpimentel.CadastroDeNinjas.Ninjas.model.NinjaModel;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.List;
+
 
 @Entity
 @Data
@@ -17,6 +19,7 @@ public class MissaoModel {
 
     private enum dificuldade{S,A,B,C,D,E};
 
-
-    private NinjaModel ninja;
+    //@OneToMany uma missão tem varios ninjas.
+    @OneToMany(mappedBy = "missoes")
+    private List<NinjaModel> ninjas;
 }
