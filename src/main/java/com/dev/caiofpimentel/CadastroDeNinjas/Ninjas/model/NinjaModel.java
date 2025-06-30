@@ -1,7 +1,10 @@
-package com.dev.caiofpimentel.CadastroDeNinjas.Ninjas.service.repository.model;
+package com.dev.caiofpimentel.CadastroDeNinjas.Ninjas.model;
 
+import com.dev.caiofpimentel.CadastroDeNinjas.Missoes.model.MissaoModel;
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.List;
 
 @Getter
 @Setter
@@ -22,4 +25,6 @@ public class NinjaModel {
     private int idade;
 
     private String email;
+
+    private List<MissaoModel> missoes;
 }
