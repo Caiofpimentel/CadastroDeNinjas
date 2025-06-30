@@ -1,4 +1,4 @@
-package com.dev.caiofpimentel.CadastroDeNinjas.model;
+package com.dev.caiofpimentel.CadastroDeNinjas.Ninjas.service.repository.model;
 
 import jakarta.persistence.*;
 import lombok.*;
