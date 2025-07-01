@@ -3,14 +3,8 @@ package com.dev.caiofpimentel.CadastroDeNinjas.Ninjas.controller;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping
+@RequestMapping("/ninjas")
 public class NinjaController {
-
-    @GetMapping("/boasvindas")
-    public String boasVindas(){
-        return "Essa é minhas primeira mensagem nessa rota";
-    }
-
 
     //Adicionar Ninja (CREATE)
     @PostMapping("/criar")
@@ -38,7 +32,7 @@ public class NinjaController {
 
 
     //Deletar Ninja (DELETE)
-    @DeleteMapping("/deletarId")
+    @DeleteMapping("/deletar")
     public String deletarNinja(){
         return "Ninja deletado por Id";
     }
