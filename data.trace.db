@@ -1,0 +1,3 @@
+2025-07-01 19:34:23.369788-03:00 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "TB_CADASTRO" not found; SQL statement:
+-- V2: Migrations para adicionar a coluna de RANK na  [42102-232]
