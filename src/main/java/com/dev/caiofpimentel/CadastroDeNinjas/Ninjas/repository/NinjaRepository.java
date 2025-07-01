@@ -1,4 +1,7 @@
 package com.dev.caiofpimentel.CadastroDeNinjas.Ninjas.repository;
 
-public class NinjaRepository {
+import com.dev.caiofpimentel.CadastroDeNinjas.Ninjas.model.NinjaModel;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface NinjaRepository extends JpaRepository<NinjaModel, Long> {
 }
