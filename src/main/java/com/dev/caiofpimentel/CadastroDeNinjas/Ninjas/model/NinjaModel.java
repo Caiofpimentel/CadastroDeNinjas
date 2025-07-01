@@ -4,8 +4,6 @@ import com.dev.caiofpimentel.CadastroDeNinjas.Missoes.model.MissaoModel;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.List;
-
 @Getter
 @Setter
 @ToString
@@ -22,11 +20,15 @@ public class NinjaModel {
 
     private String nome;
 
+    @Column(unique = true)
+    private String email;
+
+    @Column(name = "img_Url")
+    private String imgUrl;
+
     private int idade;
 
-    private String vila;
-
-    //@ManyToOne Um ninja tem uma unica missão
+    //@ManyToOne Um ninja tem uma unica missão mas a missao pode ter varios ninjas
     @ManyToOne
     @JoinColumn(name = "missoes_id") // Foreign key, Chave estrangeira
     private MissaoModel missoes;
