@@ -2,7 +2,6 @@ package com.dev.caiofpimentel.CadastroDeNinjas.Missoes.controller;
 
 import com.dev.caiofpimentel.CadastroDeNinjas.Missoes.model.MissaoModel;
 import com.dev.caiofpimentel.CadastroDeNinjas.Missoes.service.MissaoService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,8 +10,14 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/missoes")
 public class MissaoController {
-    @Autowired
-    MissaoService missaoService;
+
+
+    private final MissaoService missaoService;
+
+    public MissaoController(MissaoService missaoService) {
+        this.missaoService = missaoService;
+    }
+
 
     //POST manda requisição para cirar
     @PostMapping("/criar")

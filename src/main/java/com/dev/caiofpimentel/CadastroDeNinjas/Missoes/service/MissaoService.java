@@ -2,15 +2,15 @@ package com.dev.caiofpimentel.CadastroDeNinjas.Missoes.service;
 
 import com.dev.caiofpimentel.CadastroDeNinjas.Missoes.model.MissaoModel;
 import com.dev.caiofpimentel.CadastroDeNinjas.Missoes.repository.MissaoRepository;
-import com.dev.caiofpimentel.CadastroDeNinjas.Ninjas.model.NinjaModel;
-
-import java.util.ArrayList;
+import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
+
+@Service
 public class MissaoService {
 
-    MissaoRepository missaoRepository;
+    private final MissaoRepository missaoRepository;
 
     public MissaoService(MissaoRepository missaoRepository) {
         this.missaoRepository = missaoRepository;
@@ -18,7 +18,7 @@ public class MissaoService {
 
     //criar
     public MissaoModel criarMissao(MissaoModel missao){
-      return  missaoRepository.save(missao);
+      return missaoRepository.save(missao);
     }
 
     //listar
@@ -33,6 +33,7 @@ public class MissaoService {
     }
 
     //atualizar
+
 
 
     //deletar
