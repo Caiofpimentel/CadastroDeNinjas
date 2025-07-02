@@ -17,13 +17,9 @@ public class MissaoService {
     }
 
     //criar
-//    public void criarMissao(String nome, String dificuldade, List<NinjaModel> ninjas){
-//        List<NinjaModel> ninjaModels = new ArrayList<>();
-//        ninjaModels.add(ninjas);
-//
-//        MissaoModel missaoModel = new MissaoModel(nome,dificuldade);
-//        missaoRepository.save();
-//    }
+    public MissaoModel criarMissao(MissaoModel missao){
+      return  missaoRepository.save(missao);
+    }
 
     //listar
     public List<MissaoModel> listarMissoes(){
