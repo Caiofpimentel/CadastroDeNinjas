@@ -1,6 +1,7 @@
 package com.dev.caiofpimentel.CadastroDeNinjas.Missoes.model;
 
 import com.dev.caiofpimentel.CadastroDeNinjas.Ninjas.model.NinjaModel;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -25,6 +26,7 @@ public class MissaoModel {
 
     //@OneToMany uma missão tem varios ninjas.
     @OneToMany(mappedBy = "missoes")
+    @JsonIgnore
     private List<NinjaModel> ninjas;
 
 }
