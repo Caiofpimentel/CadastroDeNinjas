@@ -1,10 +1,17 @@
 package com.dev.caiofpimentel.CadastroDeNinjas.Ninjas.controller;
 
+import com.dev.caiofpimentel.CadastroDeNinjas.Ninjas.model.NinjaModel;
+import com.dev.caiofpimentel.CadastroDeNinjas.Ninjas.service.NinjaService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/ninjas")
 public class NinjaController {
+    @Autowired
+    private NinjaService ninjaService;
 
     //Adicionar Ninja (CREATE)
     @PostMapping("/criar")
@@ -14,8 +21,8 @@ public class NinjaController {
 
     //Mostrar todos os ninjas (READ)
     @GetMapping("/listar")
-    public String mostrarTodosNinjas(){
-        return "Mostrar todos ninjas";
+    public List<NinjaModel> listarNinjas(){
+        return ninjaService.listarNinjas();
     }
 
     //Mostrar Ninja por ID (READ)

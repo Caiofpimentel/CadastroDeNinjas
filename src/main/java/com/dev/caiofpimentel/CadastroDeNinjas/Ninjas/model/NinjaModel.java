@@ -32,4 +32,13 @@ public class NinjaModel {
     @ManyToOne
     @JoinColumn(name = "missoes_id") // Foreign key, Chave estrangeira
     private MissaoModel missoes;
+
+
+    public NinjaModel(String nome, String email, String imgUrl, int idade, MissaoModel missoes) {
+        this.nome = nome;
+        this.email = email;
+        this.imgUrl = imgUrl;
+        this.idade = idade;
+        this.missoes = missoes;
+    }
 }
