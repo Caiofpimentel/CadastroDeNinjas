@@ -1,5 +1,6 @@
 package com.dev.caiofpimentel.CadastroDeNinjas.Ninjas.controller;
 
+import com.dev.caiofpimentel.CadastroDeNinjas.Ninjas.DTO.NinjaDTO;
 import com.dev.caiofpimentel.CadastroDeNinjas.Ninjas.model.NinjaModel;
 import com.dev.caiofpimentel.CadastroDeNinjas.Ninjas.service.NinjaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,7 @@ public class NinjaController {
 
     //Adicionar Ninja (CREATE)
     @PostMapping("/criar")
-    public NinjaModel criarNinja(@RequestBody NinjaModel ninja){
+    public NinjaDTO criarNinja(@RequestBody NinjaDTO ninja){
       return ninjaService.criarNinja(ninja);
     }
 

@@ -1,6 +1,8 @@
 package com.dev.caiofpimentel.CadastroDeNinjas.Ninjas.service;
 
-import com.dev.caiofpimentel.CadastroDeNinjas.Missoes.model.MissaoModel;
+
+import com.dev.caiofpimentel.CadastroDeNinjas.Ninjas.DTO.NinjaDTO;
+import com.dev.caiofpimentel.CadastroDeNinjas.Ninjas.mapper.NinjaMapper;
 import com.dev.caiofpimentel.CadastroDeNinjas.Ninjas.model.NinjaModel;
 import com.dev.caiofpimentel.CadastroDeNinjas.Ninjas.repository.NinjaRepository;
 import org.springframework.stereotype.Service;
@@ -12,14 +14,18 @@ import java.util.Optional;
 public class NinjaService {
 
    private final NinjaRepository ninjaRepository;
-   public NinjaService(NinjaRepository ninjaRepository) {
+   private final NinjaMapper ninjaMapper;
+
+    public NinjaService(NinjaRepository ninjaRepository, NinjaMapper ninjaMapper) {
         this.ninjaRepository = ninjaRepository;
+        this.ninjaMapper = ninjaMapper;
     }
 
     //Criar Ninja
-    public NinjaModel criarNinja(NinjaModel ninja){
-
-       return ninjaRepository.save(ninja);
+    public NinjaDTO criarNinja(NinjaDTO ninjaDTO){
+        NinjaModel ninja = ninjaMapper.map(ninjaDTO);
+       ninja = ninjaRepository.save(ninja);
+       return ninjaMapper.map(ninja);
     }
 
     //Listar todos os Ninjas
