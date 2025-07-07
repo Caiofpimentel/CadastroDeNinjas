@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Detalhes do Ninja</title>
+  <link rel="stylesheet" th:href="@{/css/styles.css}" />
+  <style > body {
+  background-color: #fff5e6; /* Laranja bem claro para o fundo */
+  color: #663300; /* Marrom-escuro para texto */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 20px;
+}
+
+h1 {
+  color: #e65100; /* Laranja forte para títulos */
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2.5rem;
+  text-shadow: 1px 1px 0 #b34700;
+}
+
+.btn-adicionar, a {
+  background-color: #ef6c00; /* Laranja padrão para botões e links */
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  box-shadow: 0 4px 6px rgba(239,108,0,0.6);
+  transition: background-color 0.3s ease;
+}
+
+.btn-adicionar:hover, a:hover {
+  background-color: #bf360c; /* Laranja mais escuro no hover */
+  box-shadow: 0 6px 8px rgba(191,54,12,0.8);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff0d1; /* Laranja claro para o fundo da tabela */
+  box-shadow: 0 0 12px rgba(191,54,12,0.2);
+}
+
+th, td {
+  border: 1px solid #e65100; /* Borda laranja */
+  padding: 12px 15px;
+  text-align: center;
+  color: #663300;
+}
+
+thead {
+  background-color: #ff9800; /* Laranja vibrante para o cabeçalho */
+  color: white;
+}
+
+tbody tr:hover {
+  background-color: #ffe0b2; /* Laranja claro no hover */
+  transition: background-color 0.3s ease;
+}
+
+img {
+  border-radius: 8px;
+  border: 2px solid #ef6c00; /* Borda laranja nas imagens */
+}
+
+.mensagem {
+  background-color: #ffe6cc;
+  border-left: 5px solid #e65100;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  color: #bf360c;
+  box-shadow: 0 0 8px rgba(191,54,12,0.3);
+}
+
+  </style>
+</head>
+<body>
+<h1>Detalhes do Ninja</h1>
+<div>
+  <img th:src="${ninja.imgUrl}" alt="${ninja.nome}" width="200" />
+  <h2 th:text="${ninja.nome}"></h2>
+  <p><strong>Email:</strong> <span th:text="${ninja.email}"></span></p>
+  <p><strong>Idade:</strong> <span th:text="${ninja.idade}"></span></p>
+  <p><strong>Rank:</strong> <span th:text="${ninja.rank}"></span></p>
+
+  <h3>Missões:</h3>
+  <table>
+    <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Dificuldade</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="missao : ${ninja.missoes}">
+      <td th:text="${missao.nome}"></td>
+      <td th:text="${missao.dificuldade}"></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<a th:href="@{/ninjas/ui/listar}">Voltar para a lista de ninjas</a>
+</body>
+</html>

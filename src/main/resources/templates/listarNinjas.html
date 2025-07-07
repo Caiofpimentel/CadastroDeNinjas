@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>Listar Ninjas</title>
+    <style>
+        body {
+
+            background-size: 250px;
+            background-color: #fef6e4;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 20px;
+            color: #222;
+        }
+
+        h1 {
+            color: #e65100;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+            text-shadow: 1px 1px 0 #000;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: rgba(255, 243, 224, 0.95);
+            box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+        }
+
+        th, td {
+            border: 1px solid #bbb;
+            padding: 12px 15px;
+            text-align: center;
+        }
+
+        thead {
+            background-color: #ff9800;
+            color: #fff;
+        }
+        /* Botão adicionar */
+        .btn-adicionar {
+            display: block;
+            width: 200px;
+            margin: 0 auto 25px auto;
+            padding: 12px 0;
+            background-color: #ef6c00;
+            color: white;
+            text-align: center;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            text-decoration: none;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            transition: background-color 0.3s ease;
+        }
+         .btn-adicionar:hover {
+            background-color: #bf360c;
+        }
+
+        tbody tr:hover {
+            background-color: #ffe0b2;
+            transition: background-color 0.3s ease;
+        }
+
+        img {
+            border-radius: 8px;
+            border: 2px solid #ff7043;
+        }
+
+        a {
+            margin: 0 5px;
+            padding: 6px 10px;
+            text-decoration: none;
+            background-color: #ef6c00;
+            color: white;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.2s ease;
+        }
+
+        a:hover {
+            background-color: #bf360c;
+        }
+    </style>
+</head>
+<body>
+<h1>Lista de Ninjas</h1>
+<a class="btn-adicionar" th:href="@{/ninjas/ui/adicionar}">Adicionar Novo Ninja</a>
+<table border="1">
+    <thead>
+    <tr>
+        <th>Imagem</th>
+        <th>Id</th>
+        <th>Nome</th>
+        <th>Idade</th>
+        <th>Email</th>
+        <th>Rank</th>
+        <th>Missão</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="ninja : ${ninjas}">
+        <td><img th:src="${ninja.imgUrl}" alt="Imagem do ninja" width="150" height="150"></td>
+        <td th:text="${ninja.id}"></td>
+        <td th:text="${ninja.nome}"></td>
+        <td th:text="${ninja.idade}"></td>
+        <td th:text="${ninja.email}"></td>
+        <td th:text="${ninja.rank}"></td>
+        <td>
+            <span th:if="${ninja.missoes}"><span th:text="${ninja.missoes.nome}"></span>, Dificuldade: <span th:text="${ninja.missoes.dificuldade}"}> </span> </span>
+            <span th:if="${ninja.missoes == null}">Sem Missões</span>
+        </td>
+        <td>
+            <a th:href="@{/ninjas/ui/listar/{id}(id=${ninja.id})}">Ver Detalhes</a>
+            <a th:href="@{/ninjas/ui/atualizar/{id}(id=${ninja.id})}">Alterar</a>
+            <a th:href="@{/ninjas/ui/deletar/{id}(id=${ninja.id})}">Deletar</a>
+
+        </td>
+
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
