@@ -6,7 +6,7 @@ import lombok.*;
 
 @Getter
 @Setter
-@ToString
+@ToString(exclude = "missoes")
 @EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
